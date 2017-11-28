@@ -11,7 +11,7 @@
     <div id="formulario">
       <form method="post" action="" id="datosPersonales">
         <ul>
-          <li><h3>Datos Personales</h3></li>
+          <li><h3>Información general</h3></li>
           <li>
             <label for="">primer Apellido: </label>
             <input type="text" name="apellido1" required>
@@ -24,7 +24,48 @@
             <label for="">Otros Nombre</label>
             <input type="text" name="nombre2">
           </li>
-          <li><label for="">Tipo Documento</label></li>
+          <li><label for="">Tipo Documento</label>
+            <select name="documentoId" id="">
+              <option value=""></option>
+              <option value="CC">CC</option>
+              <option value="TI">TI</option>
+              <option value="RC">RC</option>
+              <option value="CE">CE</option>
+            </select>
+            <label for="NumeroID">Número de Identificación</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">Lugar nacimiento</label>
+            <input type="text" required>
+            <label for="">Fecha Nacimiento</label>
+            <input type="Date" required>
+          </li>
+          <li>
+            <label for="">Genero</label>
+            <input type="radio" name="genero" id="" value="M">M
+            <input type="radio" name="genero" id="" value="F">F
+            <label for="">Dirección</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">Barrio/ vereda</label>
+            <input type="text">
+            <label for="">Estrato</label>
+            <input type="text">
+          </li>
+          <li>
+            <label for="">Teléfono</label>
+            <input type="number" name="" id="">
+            <label for="">Celular</label>
+            <input type="number" name="" id="">
+          </li>
+          <li>
+            <label for="">Correo Electronico</label>
+            <input type="email" name="" id="">
+            <label for="">Fotografia</label>
+            <input type="file" name="" id="">
+          </li>
         </ul>
       </form>
     </div>
