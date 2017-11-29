@@ -1,0 +1,19 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+ul{
+  margin-top: 20px;
+}
+li{
+  min-width: 90%;
+}
+label{
+  padding: 10px;
+  margin: 5px;
+}
+input{
+  padding: 5px;
+  margin: 10px;
+  border-radius: 10px;
+}
