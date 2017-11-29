@@ -59,7 +59,7 @@
             <label for="">Barrio/ vereda</label>
             <input type="text" required>
             <label for="">Estrato</label>
-            <input type="text" required>
+            <input type="number" required min="0" max="6">
           </li>
           <li>
             <label for="">Teléfono</label>
@@ -78,7 +78,7 @@
             <input type="radio" name="sisben" id="">Sí
             <input type="radio" name="sisben" id="">No
             <label for="">Nivel</label>
-            <input type="number">
+            <input type="number" min="0" max="6">
           </li>
           <li>
             <label for="">Desplazado</label>
@@ -102,10 +102,90 @@
         <ul>
           <li><h3>Información Familiar</h3></li>
           <li>
-            <label for="">Nombre del padre: </label>
+            <label for="npadre">Nombre del padre: </label>
+            <input type="text" name="npadre" value="" id="npadre">
+            <label for="">Cedula</label>
+            <input type="number" name="ccpadre" value="">
+            <label for="">Ocupación</label>
+            <input type="text" name="ocupacionpadre" value="">
+            <label for="">Dirección</label>
+            <input type="text" name="direccionpadre" value="">
+            <label for="">telefono</label>
+            <input type="number" name="telefonopadre" value="">
+          </li>
+          <li>
+            <label for="">direccion trabajo</label>
+            <input type="text" name="direccionPadreTrabajo" value="">
+            <label for="">telefono trabajo</label>
+            <input type="number" name="telefonotrabajopadre" value="">
+          </li>
+          <li><label for="">Nombre de la madre</label>
+          <input type="text" name="nmadre" value="">
+          <label for="">cedula</label>
+          <input type="number" name="cedulamadre">
+          <label for="">ocupación</label>
+          <input type="text" name="ocupacionmadre">
+          <label for="">direccion casa</label>
+          <input type="text" name="direcionmadrecasa">
+          <label for="">telefono</label>
+          <input type="number" name="telefonocasamadre">
+        </li>
+        <li><label for="">Dirección trabajo</label>
+          <input type="text" name="direccionTrabajomadre">
+          <label for="">telefono</label>
+          <input type="number" name="telefonotrabajomadre">
+        </li>
+        </ul>
+        <ul>
+          <li><h3>Información académica</h3></li>
+          <li><label for="">Institución educativa procedencia</label>
+              <input type="text" name="institucionprocedencia">
+              <label for="">municipio</label>
+              <input type="text" name="municipioinstitucion">
+              <label for="">Departamento</label>
+              <input type="text" name="departamentoinstitucion">
+              <label for="">Ultimo grado cursado</label>
+              <input type="text" name="ultimogradocursado">
+          </li>
+          <li>
+            <label for="">Nombre y grado de hermanos q estudian en el inem</label>
+          </li>
+          <li>
+            <ul>
+              <li><input type="text" name="nombrehermano1">
+                <select name="hermano1" id="">
+                  <option value="transicion">Transicion</option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                </select>
+              </li>
+            </ul>
           </li>
         </ul>
+
+          <input type="submit">
+
       </form>
+
+      <ul id="requisitos">
+        <h3>Requisitos</h3>
+        <li>
+          formulario de preinscripción diligenciado
+        </li>
+        <li>Fotocopia de documento de identificación del estudiante (Registro civil o tarjeta de identidad o cédula de ciudadanía)</li>
+        <li>Si ostenta calidad de desplazado anexar carta de la U.A.O. (Unidad atención oportuna)</li>
+        <li>Anexar otras constancias o certificados de condiciones especiales</li>
+      </ul>
+
     </div>
   </div>
 </body>
