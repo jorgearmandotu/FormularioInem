@@ -4,187 +4,270 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <LINK href="index.css" rel="stylesheet" type="text/css">
+  <script languaje="javascript" src="index.js"></script>
+  <link href="index.css" rel="stylesheet" type="text/css">
   <title>Formulario</title>
 </head>
 <body>
-  <div id="contenedor">
+    <div id="contenedor">
     <div id="formulario">
-      <form method="post" action="" id="datosPersonales">
+      <form method="post" onsubmit="return validacion();" id="datosPersonales">
         <ul>
-          <li><h3>Información general</h3></li>
+          <li><h2>Información general</h2></li>
           <li>
-            <label for="">primer Apellido: </label>
-            <input type="text" name="apellido1" required>
-            <label for="">Segundo Apellido: </label>
-            <input type="text" name="apellido2">
+            <label for="prim_apellido">Primer Apellido: </label>
+            <input type="text" name="apellido1" id="prim_apellido" required>
+            <label for="seg_apellido">Segundo Apellido: </label>
+            <input type="text" name="apellido2" id="seg_apellido">
           </li>
           <li>
-            <label for="">Primer Nombre</label>
-            <input type="text" name="nombre1" required>
-            <label for="">Otros Nombre</label>
-            <input type="text" name="nombre2">
+            <label for="prim_nombre">Primer Nombre</label>
+            <input type="text" name="nombre1" id="prim_nombre" required>
+            <label for="seg_nombre">Otros Nombre</label>
+            <input type="text" name="nombre2" id="seg_nombre">
           </li>
-          <li><label for="">Tipo Documento</label>
-            <select name="documentoId" id="">
-              <option value=""></option>
+          <li><label for="tipo_doc">Tipo Documento</label>
+            <select name="documentoId" value="" id="tipo_doc" required>
+              <option VALUE=""></option>
               <option value="CC">CC</option>
               <option value="TI">TI</option>
               <option value="RC">RC</option>
               <option value="CE">CE</option>
             </select>
-            <label for="NumeroID">Número de Identificación</label>
-            <input type="text">
+            <label for="id_estudiante">Número de Identificación</label>
+            <input type="number" id="id_estudiante" required>
+          </li>
+            <label for="tipo_sandre">Tipo de sangre RH</label>
+            <select name="rh" id="">
+              <option value=""></option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select>
           </li>
           <li>
-            <label for="">Tipo de sangre</label>
-            <input type="text">
-            <label for="">RH</label>
-            <input type="text">
+            <label for="lugar_na">Lugar nacimiento</label>
+            <input type="text" id="lugar_na" required>
+            <label for="fecha_na">Fecha Nacimiento</label>
+            <input type="Date" value="" id="fecha_na" required>
           </li>
           <li>
-            <label for="">Lugar nacimiento</label>
-            <input type="text" required>
-            <label for="">Fecha Nacimiento</label>
-            <input type="Date" required>
+            <label for="sexo">Género</label>
+            <input type="radio" name="genero" id="M" value="M">M
+            <input type="radio" name="genero" id="F" value="F">F
+            <label for="dir_recidencia">Dirección</label>
+            <input type="text" id="dir_recidencia" required>
           </li>
           <li>
-            <label for="">Genero</label>
-            <input type="radio" name="genero" id="" value="M">M
-            <input type="radio" name="genero" id="" value="F">F
-            <label for="">Dirección</label>
-            <input type="text" required>
+            <label for="barrio_vereda">Barrio/ vereda</label>
+            <input type="text" id="barrio_vereda" required>
+            <label for="estrato">Estrato</label>
+            <input type="number" value="" id="estrato"  min="0" max="6" required>
           </li>
           <li>
-            <label for="">Barrio/ vereda</label>
-            <input type="text" required>
-            <label for="">Estrato</label>
-            <input type="number" required min="0" max="6">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" name="" id="telefono">
+            <label for="celular">Celular</label>
+            <input type="tel" name="" id="celular" required>
           </li>
           <li>
-            <label for="">Teléfono</label>
-            <input type="number" name="" id="">
-            <label for="">Celular</label>
-            <input type="number" name="" id="" required>
+            <label for="email">Correo Electronico</label>
+            <input type="email" name="" id="email" required>
           </li>
           <li>
-            <label for="">Correo Electronico</label>
-            <input type="email" name="" id="" required>
-            <label for="">Fotografia</label>
-            <input type="file" name="" id="" rquired>
+            <label for="sisben">Sisben: </label>
+            <input type="radio" name="sisben" id="si" value="si">Sí
+            <input type="radio" name="sisben" id="no" value="no">No
+            <label for="nivel_sisben">Nivel</label>
+            <input type="number" min="0" max="6" value="" id="nivel_sisben" >
           </li>
           <li>
-            <label for="">Sisben: </label>
-            <input type="radio" name="sisben" id="">Sí
-            <input type="radio" name="sisben" id="">No
-            <label for="">Nivel</label>
-            <input type="number" min="0" max="6">
+            <label for="desplazado">Desplazado</label>
+            <input type="radio" name="desplazado" value="si">No
+            <input type="radio" name="desplazado" value="no">Sí
+            <label for="municipio">Municipio</label>
+            <input type="text" id="municipio">
+            <label for="departamento">Departamento</label>
+            <input type="text" id="departamento">
           </li>
           <li>
-            <label for="">Desplazado</label>
-            <input type="radio" name="desplazado" id="">Sí
-            <input type="radio" name="desplazado" id="">No
-            <label for="">Municipio</label>
-            <input type="text">
-            <label for="">Departamento</label>
-            <input type="text">
-          </li>
-          <li>
-            <label for="">Etnias</label>
+            <label for="etnias"></label>
             <spam>Diligenciar unicamente si usted pertenece a una comunidad afrocolombiana o indigena</spam>
           </li>
           <li>
-            <input type="checkbox" name="etnia" id="">Afrocolombiano
-            <input type="checkbox" name="etnia" id="">Indigena
-            <input type="checkbox" name="etnia" id="">Resguardo / Cabildo
-          </li>
+            <label for="etnia">Etnias: </label>
+            <input type="radio" name="etnia" id="si" value="afro">Afrocolombiano
+            <input type="radio" name="etnia" id="no" value="indigena">Indigena
+            <label for="etnia">Resguardo / Cabildo</label>
+            <input type="texto" id="etnia">
+          </li>          
         </ul>
         <ul>
           <li><h3>Información Familiar</h3></li>
           <li>
-            <label for="npadre">Nombre del padre: </label>
-            <input type="text" name="npadre" value="" id="npadre">
-            <label for="">Cedula</label>
-            <input type="number" name="ccpadre" value="">
-            <label for="">Ocupación</label>
-            <input type="text" name="ocupacionpadre" value="">
-            <label for="">Dirección</label>
-            <input type="text" name="direccionpadre" value="">
-            <label for="">telefono</label>
-            <input type="number" name="telefonopadre" value="">
+            <label for="nom_padre">Nombre del padre: </label>
+            <input type="text" name="npadre" id="nom_padre">
+            <label for="id_padre">Cédula</label>
+            <input type="number" name="ccpadre" id="id_padre">
+            <label for="ocu_padre">Ocupación</label>
+            <input type="text" name="ocupacionpadre" id="ocu_padre">
+            <label for="dir_padre">Dirección</label>
+            <input type="text" name="dir_padre" d="dir_padre">
+            <label for="tel_padre">Telefono</label>
+            <input type="tel" name="telefonopadre" id="tel_padre">
           </li>
           <li>
-            <label for="">direccion trabajo</label>
-            <input type="text" name="direccionPadreTrabajo" value="">
-            <label for="">telefono trabajo</label>
-            <input type="number" name="telefonotrabajopadre" value="">
+            <label for="dir_tra_padre">Dirección trabajo</label>
+            <input type="text" name="direccionPadreTrabajo" id="dir_tra_padre">
+            <label for="tel_tra_padre">Telefono trabajo</label>
+            <input type="tel" name="telefonotrabajopadre" id="tel_tra_padre">
           </li>
-          <li><label for="">Nombre de la madre</label>
-          <input type="text" name="nmadre" value="">
-          <label for="">cedula</label>
-          <input type="number" name="cedulamadre">
-          <label for="">ocupación</label>
-          <input type="text" name="ocupacionmadre">
-          <label for="">direccion casa</label>
-          <input type="text" name="direcionmadrecasa">
-          <label for="">telefono</label>
-          <input type="number" name="telefonocasamadre">
+          <li><label for="nom_madre">Nombre de la madre</label>
+          <input type="text" name="nmadre" id="nom_madre">
+          <label for="id_madre">Cédula</label>
+          <input type="number" name="cedulamadre" id="id_madre">
+          <label for="ocu_madre">Ocupación</label>
+          <input type="text" name="ocupacionmadre" id="ocu_madre">
+          <label for="dir_madre">Dirección casa</label>
+          <input type="text" name="direcionmadrecasa" id="dir_madre">
+          <label for="tel_madre">Telefono</label>
+          <input type="tel" name="telefonocasamadre" id="tel_madre">
         </li>
-        <li><label for="">Dirección trabajo</label>
-          <input type="text" name="direccionTrabajomadre">
-          <label for="">telefono</label>
-          <input type="number" name="telefonotrabajomadre">
+        <li><label for="dir_tra_madre">Dirección trabajo</label>
+          <input type="text" name="direccionTrabajomadre" id="dir_tra_madre">
+          <label for="tel_tra_madre">Telefono</label>
+          <input type="tel" name="telefonotrabajomadre" id="tel_tra_madre">
         </li>
         </ul>
         <ul>
           <li><h3>Información académica</h3></li>
-          <li><label for="">Institución educativa procedencia</label>
-              <input type="text" name="institucionprocedencia">
-              <label for="">municipio</label>
-              <input type="text" name="municipioinstitucion">
-              <label for="">Departamento</label>
-              <input type="text" name="departamentoinstitucion">
-              <label for="">Ultimo grado cursado</label>
-              <input type="text" name="ultimogradocursado">
+          <li><label for="inst_procedencia">Institución Educativa procedencia</label>
+              <input type="text" name="institucionprocedencia" id="inst_procedencia">
+              <label for="municipio_pro">Municipio</label>
+              <input type="text" name="municipioinstitucion" id="municipio_pro">
+              <label for="dep_pro">Departamento</label>
+              <input type="text" name="departamentoinstitucion" id="dep_pro">
+              <label for="ultimo_grado">Ultimo grado cursado</label>
+              <input type="text" name="ultimogradocursado" id="ultimo_grado">
           </li>
           <li>
-            <label for="">Nombre y grado de hermanos q estudian en el inem</label>
+            <label for="">Nombre y grado de hermanos q estudian en el inem (Diligenciar campos requeridos)</label>
           </li>
           <li>
-            <ul>
-              <li><input type="text" name="nombrehermano1">
-                <select name="hermano1" id="">
-                  <option value="transicion">Transicion</option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-                  <option value="11">11</option>
-                </select>
-              </li>
-            </ul>
+            <label for="nom_her_1">Nombres</label>
+            <input type="text" name="Nombreh1"  id="nom_her_1">
+            <label for="ape_her_1">Apellidos</label>
+            <input type="text" name="apellidoh1"  id="ape_her_1">
+            <label for="grado1">Grado</label>
+            <select name="hermano1" id="grado1">
+              <option value="transicion">Transicion</option>
+              <option value=""></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+           
+          </li>
+          <li>
+            <label for="nom_her_2">Nombres</label>
+            <input type="text" name="Nombreh2"  id="nom_her_2">
+            <label for="ape_her_2">Apellidos</label>
+            <input type="text" name="apellidoh2"  id="ape_her_2">
+            <label for="grado2">Grado</label>
+            <select name="hermano2" id="grado2">
+              <option value="transicion">Transicion</option>
+              <option value=""></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          
+          </li>
+          <li>
+            <label for="nom_her_3">Nombres</label>
+            <input type="text" name="Nombreh3"  id="nom_her_3">
+            <label for="ape_her_3">Apellidos</label>
+            <input type="text" name="apellidoh3"  id="ape_her_3">
+            <label for="grado3">Grado</label>
+            <select name="hermano3" id="grado3">
+              <option value="transicion">Transicion</option>
+              <option value=""></option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          
+          </li>
+          <li>
+            <label for="nom_her_4">Nombres</label>
+            <input type="text" name="Nombreh4" id="nom_her_4">
+            <label for="ape_her_4">Apellidos</label>
+            <input type="text" name="apellidoh4"  id="ape_her_4">
+            <label for="grado4">Grado</label>
+            <select name="hermano4" id="grado4">
+              <option value=""></option>
+              <option value="transicion">Transicion</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="6">6</option>
+              <option value="7">7</option>
+              <option value="8">8</option>
+              <option value="9">9</option>
+              <option value="10">10</option>
+              <option value="11">11</option>
+            </select>
+          
           </li>
         </ul>
 
-          <input type="submit">
+          <input type="submit" id="enviar" value="Enviar">
 
       </form>
 
-      <ul id="requisitos">
-        <h3>Requisitos</h3>
-        <li>
-          formulario de preinscripción diligenciado
-        </li>
-        <li>Fotocopia de documento de identificación del estudiante (Registro civil o tarjeta de identidad o cédula de ciudadanía)</li>
-        <li>Si ostenta calidad de desplazado anexar carta de la U.A.O. (Unidad atención oportuna)</li>
-        <li>Anexar otras constancias o certificados de condiciones especiales</li>
-      </ul>
+      <fieldset>
+        <legend>Requisitos</legend>
+        <ul id="requisitos">
+          <li>1. Formulario de preinscripción diligenciado</li>
+          <li>2. Fotocopia de documento de identificación del estudiante (Registro civil o tarjeta de identidad o cédula de ciudadanía)</li>
+          <li>3. Fotocopia de los 3 últimos boletines del año</li>
+          <li>4. Si ostenta calidad de desplazado anexar carta de la U.A.O. (Unidad atención oportuna)</li>
+          <li>5. si pertenece a alguna etnia anexar carta o cetificacion del resguardo</li>
+          <li>4. Anexar otras constancias o certificados de condiciones especiales</li>
+        </ul>
+          <li><h3>La inscripción no aplica la admisión del estudiante, esta estará sujeta a la disponibilidad de cupos en las sedes y jornadas ofrecidas por l institución</h3></li>
+      </fieldset>     
 
     </div>
   </div>
