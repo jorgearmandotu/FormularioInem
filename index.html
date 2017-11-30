@@ -11,34 +11,34 @@
 <body>
     <div id="contenedor">
     <div id="formulario">
-      <form method="post" onsubmit="return validacion();" id="datosPersonales">
+      <form method="post" name="datos_frm" action="insert.php" id="datosPersonales">
         <ul>
           <li><h2>Información general</h2></li>
           <li>
-            <label for="prim_apellido">Primer Apellido: </label>
-            <input type="text" name="apellido1" id="prim_apellido" required>
-            <label for="seg_apellido">Segundo Apellido: </label>
-            <input type="text" name="apellido2" id="seg_apellido">
+            <label for="apellido1">Primer Apellido: </label>
+            <input type="text" name="prim_apellido" id="apellido1" required >
+            <label for="apellido2">Segundo Apellido: </label>
+            <input type="text" name="seg_apellido" id="apellido2">
           </li>
           <li>
-            <label for="prim_nombre">Primer Nombre</label>
-            <input type="text" name="nombre1" id="prim_nombre" required>
-            <label for="seg_nombre">Otros Nombre</label>
-            <input type="text" name="nombre2" id="seg_nombre">
+            <label for="nombre1">*Primer Nombre</label>
+            <input type="text" name="prim_nom_est" id="nombre1" required>
+            <label for="nombre2">Otros Nombre</label>
+            <input type="text" name="seg_nom_est" id="nombre2">
           </li>
-          <li><label for="tipo_doc">Tipo Documento</label>
-            <select name="documentoId" value="" id="tipo_doc" required>
+          <li><label for="tipodocumento">*Tipo Documento</label>
+            <select name="documentoId" name="tipo_doc" value="" id="tipoducumento" required>
               <option VALUE=""></option>
               <option value="CC">CC</option>
               <option value="TI">TI</option>
               <option value="RC">RC</option>
               <option value="CE">CE</option>
             </select>
-            <label for="id_estudiante">Número de Identificación</label>
-            <input type="number" id="id_estudiante" required>
+            <label for="iestudiante">*Número de Identificación</label>
+            <input type="text" name="id_estudiante" id="iestudiante" required >
           </li>
-            <label for="tipo_sandre">Tipo de sangre RH</label>
-            <select name="rh" id="">
+            <label for="rh">*Tipo de sangre RH</label>
+            <select name="tipo_sangre" id="rh" required>
               <option value=""></option>
               <option value="O+">O+</option>
               <option value="O-">O-</option>
@@ -51,49 +51,50 @@
             </select>
           </li>
           <li>
-            <label for="lugar_na">Lugar nacimiento</label>
-            <input type="text" id="lugar_na" required>
-            <label for="fecha_na">Fecha Nacimiento</label>
-            <input type="Date" value="" id="fecha_na" required>
+            <label for="lnacimiento">*Lugar nacimiento</label>
+            <input type="text" name="lugar_na" id="lnacimiento" required>
+            <label for="fnacimiento">*Fecha Nacimiento</label>
+            <input type="Date" name="fecha_na" value="" id="fnacimiento" required>
           </li>
           <li>
             <label for="sexo">Género</label>
-            <input type="radio" name="genero" id="M" value="M">M
-            <input type="radio" name="genero" id="F" value="F">F
-            <label for="dir_recidencia">Dirección</label>
-            <input type="text" id="dir_recidencia" required>
+            <input type="radio" name="sexo" id="M" value="M">M
+            <input type="radio" name="sexo" id="F" value="F">F
+            <input type="radio" name="sexo" id="O" value="O">O
+            <label for="drecidencia">*Dirección</label>
+            <input type="text" name="dir_recidencia" id="drecidencia" required>
           </li>
           <li>
-            <label for="barrio_vereda">Barrio/ vereda</label>
-            <input type="text" id="barrio_vereda" required>
+            <label for="barrio">Barrio/ vereda</label>
+            <input type="text" name="barrio_vereda" id="barrio" required>
             <label for="estrato">Estrato</label>
-            <input type="number" value="" id="estrato"  min="0" max="6" required>
+            <input type="number" name="estrato" value="" id="estrato"  min="0" max="6">
           </li>
           <li>
             <label for="telefono">Teléfono</label>
-            <input type="tel" name="" id="telefono">
-            <label for="celular">Celular</label>
-            <input type="tel" name="" id="celular" required>
+            <input type="tel" name=telefono"" id="telefono">
+            <label for="celular">*Celular</label>
+            <input type="tel" name="celular" id="celular" required>
           </li>
           <li>
             <label for="email">Correo Electronico</label>
-            <input type="email" name="" id="email" required>
+            <input type="email" name="email" id="email" required>
           </li>
           <li>
             <label for="sisben">Sisben: </label>
             <input type="radio" name="sisben" id="si" value="si">Sí
             <input type="radio" name="sisben" id="no" value="no">No
-            <label for="nivel_sisben">Nivel</label>
-            <input type="number" min="0" max="6" value="" id="nivel_sisben" >
+            <label for="nivel">Nivel</label>
+            <input type="number" name="nivel_sisben" min="0" max="6" value="" id="nivel" >
           </li>
           <li>
             <label for="desplazado">Desplazado</label>
-            <input type="radio" name="desplazado" value="si">No
-            <input type="radio" name="desplazado" value="no">Sí
+            <input type="radio" name="desplazado" id="si"value="si">No
+            <input type="radio" name="desplazado" id="no"value="no">Sí
             <label for="municipio">Municipio</label>
-            <input type="text" id="municipio">
+            <input type="text" name="municipio" id="municipio">
             <label for="departamento">Departamento</label>
-            <input type="text" id="departamento">
+            <input type="text" name="departamento" id="departamento">
           </li>
           <li>
             <label for="etnias"></label>
@@ -101,70 +102,70 @@
           </li>
           <li>
             <label for="etnia">Etnias: </label>
-            <input type="radio" name="etnia" id="si" value="afro">Afrocolombiano
-            <input type="radio" name="etnia" id="no" value="indigena">Indigena
-            <label for="etnia">Resguardo / Cabildo</label>
-            <input type="texto" id="etnia">
+            <input type="radio" name="etnia" id="afro" value="afro">Afrocolombiano
+            <input type="radio" name="etnia" id="indigena" value="indigena">Indigena
+            <label for="resguardo">Resguardo / Cabildo</label>
+            <input type="texto" name="resguardo" id="resguardo">
           </li>          
         </ul>
         <ul>
           <li><h3>Información Familiar</h3></li>
           <li>
-            <label for="nom_padre">Nombre del padre: </label>
-            <input type="text" name="npadre" id="nom_padre">
-            <label for="id_padre">Cédula</label>
-            <input type="number" name="ccpadre" id="id_padre">
-            <label for="ocu_padre">Ocupación</label>
-            <input type="text" name="ocupacionpadre" id="ocu_padre">
-            <label for="dir_padre">Dirección</label>
-            <input type="text" name="dir_padre" d="dir_padre">
-            <label for="tel_padre">Telefono</label>
-            <input type="tel" name="telefonopadre" id="tel_padre">
+            <label for="npadre">Nombre del padre: </label>
+            <input type="text" name="nom_padre" id="npadre">
+            <label for="cpadre">Cédula</label>
+            <input type="number" name="id_padre" id="cpadre">
+            <label for="ocupadre">Ocupación</label>
+            <input type="text" name="ocu_padre" id="ocupadre">
+            <label for="dirpadre">Dirección</label>
+            <input type="text" name="dir_padre" id="dirpadre">
+            <label for="telpadre">Telefono</label>
+            <input type="tel" name="tel_padre" id="telpadre">
           </li>
           <li>
-            <label for="dir_tra_padre">Dirección trabajo</label>
-            <input type="text" name="direccionPadreTrabajo" id="dir_tra_padre">
-            <label for="tel_tra_padre">Telefono trabajo</label>
-            <input type="tel" name="telefonotrabajopadre" id="tel_tra_padre">
+            <label for="dirtrapadre">Dirección trabajo</label>
+            <input type="text" name="dir_tra_padre" id="dirtrapadre">
+            <label for="teltrapadre">Telefono trabajo</label>
+            <input type="tel" name="tel_tra_padre" id="teltrapadre">
           </li>
-          <li><label for="nom_madre">Nombre de la madre</label>
-          <input type="text" name="nmadre" id="nom_madre">
-          <label for="id_madre">Cédula</label>
-          <input type="number" name="cedulamadre" id="id_madre">
-          <label for="ocu_madre">Ocupación</label>
-          <input type="text" name="ocupacionmadre" id="ocu_madre">
-          <label for="dir_madre">Dirección casa</label>
-          <input type="text" name="direcionmadrecasa" id="dir_madre">
-          <label for="tel_madre">Telefono</label>
-          <input type="tel" name="telefonocasamadre" id="tel_madre">
+          <li><label for="nmadre">Nombre de la madre</label>
+          <input type="text" name="nom_madre" id="nmadre">
+          <label for="cmadre">Cédula</label>
+          <input type="number" name="id_madre" id="cmadre">
+          <label for="ocumadre">Ocupación</label>
+          <input type="text" name="ocu_madre" id="ocumadre">
+          <label for="dirmadre">Dirección casa</label>
+          <input type="text" name="dir_madre" id="dirmadre">
+          <label for="telmadre">Telefono</label>
+          <input type="tel" name="telefonocasamadre" id="telmadre">
         </li>
-        <li><label for="dir_tra_madre">Dirección trabajo</label>
-          <input type="text" name="direccionTrabajomadre" id="dir_tra_madre">
-          <label for="tel_tra_madre">Telefono</label>
-          <input type="tel" name="telefonotrabajomadre" id="tel_tra_madre">
+        <li><label for="dirtramadre">Dirección trabajo</label>
+          <input type="text" name="dir_tra_madre" id="dirtramadre">
+          <label for="teltramadre">Telefono</label>
+          <input type="tel" name="tel_tra_madre" id="teltramadre">
         </li>
         </ul>
         <ul>
           <li><h3>Información académica</h3></li>
-          <li><label for="inst_procedencia">Institución Educativa procedencia</label>
-              <input type="text" name="institucionprocedencia" id="inst_procedencia">
-              <label for="municipio_pro">Municipio</label>
-              <input type="text" name="municipioinstitucion" id="municipio_pro">
-              <label for="dep_pro">Departamento</label>
-              <input type="text" name="departamentoinstitucion" id="dep_pro">
-              <label for="ultimo_grado">Ultimo grado cursado</label>
-              <input type="text" name="ultimogradocursado" id="ultimo_grado">
+          <li><label for="institucionpro">Institución Educativa procedencia</label>
+              <input type="text" name="ins_procedencia" id="institucionpro">
+              <label for="municipiopro">Municipio</label>
+              <input type="text" name="municipio_pro" id="municipiopro">
+              <label for="deppro">Departamento</label>
+              <input type="text" name="dep_pro" id="deppro">
+              <label for="ultimogrado">Ultimo grado cursado</label>
+              <input type="text" name="ultimo_grado" id="ultimogrado">
           </li>
           <li>
             <label for="">Nombre y grado de hermanos q estudian en el inem (Diligenciar campos requeridos)</label>
           </li>
           <li>
-            <label for="nom_her_1">Nombres</label>
-            <input type="text" name="Nombreh1"  id="nom_her_1">
-            <label for="ape_her_1">Apellidos</label>
-            <input type="text" name="apellidoh1"  id="ape_her_1">
+            <label for="nomher1">Nombres</label>
+            <input type="text" name="nom_her_1"  id="nomher1">
+            <label for="apeher1">Apellidos</label>
+            <input type="text" name="ape_her_1"  id="apeher1">
             <label for="grado1">Grado</label>
-            <select name="hermano1" id="grado1">
+            <select name="grado_her_1" id="grado1">
               <option value="transicion">Transicion</option>
               <option value=""></option>
               <option value="1">1</option>
@@ -182,12 +183,12 @@
            
           </li>
           <li>
-            <label for="nom_her_2">Nombres</label>
-            <input type="text" name="Nombreh2"  id="nom_her_2">
-            <label for="ape_her_2">Apellidos</label>
-            <input type="text" name="apellidoh2"  id="ape_her_2">
+            <label for="nomher2">Nombres</label>
+            <input type="text" name="nom_her_2"  id="nomher2">
+            <label for="apeher2">Apellidos</label>
+            <input type="text" name="ape_her_2"  id="apeher2">
             <label for="grado2">Grado</label>
-            <select name="hermano2" id="grado2">
+            <select name="grado_her_2" id="grado2">
               <option value="transicion">Transicion</option>
               <option value=""></option>
               <option value="1">1</option>
@@ -205,12 +206,12 @@
           
           </li>
           <li>
-            <label for="nom_her_3">Nombres</label>
-            <input type="text" name="Nombreh3"  id="nom_her_3">
-            <label for="ape_her_3">Apellidos</label>
-            <input type="text" name="apellidoh3"  id="ape_her_3">
+            <label for="nomher3">Nombres</label>
+            <input type="text" name="nom_her_3"  id="nomher3">
+            <label for="apeher3">Apellidos</label>
+            <input type="text" name="ape_her_3"  id="apeher3">
             <label for="grado3">Grado</label>
-            <select name="hermano3" id="grado3">
+            <select name="grado_her_3" id="grado3">
               <option value="transicion">Transicion</option>
               <option value=""></option>
               <option value="1">1</option>
@@ -228,12 +229,12 @@
           
           </li>
           <li>
-            <label for="nom_her_4">Nombres</label>
-            <input type="text" name="Nombreh4" id="nom_her_4">
-            <label for="ape_her_4">Apellidos</label>
-            <input type="text" name="apellidoh4"  id="ape_her_4">
+            <label for="nomher4">Nombres</label>
+            <input type="text" name="nom_her4" id="nomher4">
+            <label for="apeher4">Apellidos</label>
+            <input type="text" name="ape_her_4"  id="apeher4">
             <label for="grado4">Grado</label>
-            <select name="hermano4" id="grado4">
+            <select name="grado_her_4" id="grado4">
               <option value=""></option>
               <option value="transicion">Transicion</option>
               <option value="1">1</option>
@@ -252,7 +253,8 @@
           </li>
         </ul>
 
-          <input type="submit" id="enviar" value="Enviar">
+          <input type="submit" name="enviar" id="Enviar" class="cambio"value="Enviar">
+          <input type="button" name="imprimir" id="imprimir" class="cambio" value="Imprimir">
 
       </form>
 
