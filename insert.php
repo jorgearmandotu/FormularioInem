@@ -1,7 +1,6 @@
-
 <?php
-  
-  function connectionDB(){
+$enlace = null;
+ // function connectionDB(){
 
     $DB_SERVER='localhost';
     $DB_NAME='inembd1';
@@ -18,28 +17,52 @@
     }
 //    mysqli_query("SET NAMES 'utf8'");
     $enlace->query("SET NAMES 'utf8'");
-    return $enlace;
+   //return $enlace;
+//}
+
+function conecctionClose($con){
+    mysqly_close($con);
 }
 
-connectionDB();
+//connectionDB();
+$conectdb = $enlace;
 
-function ingresarPersona(){
-    
-   //encripta la contraseña
-    //$contrasena = password_hash($password, PASSWORD_DEFAULT);
-    
-    if($sql = $enl->prepare("
-    INSERT INTO estudiante VALUES(?);")){
-    $sql->bind_param('sssssssss',$cedula,$nombre,$apellido,$email,$telefono,$tipo,$usuario,$contrasena,$punto);
-    if(!$sql->execute()){
-        echo('<script type="text/javascript">alert("ocurrio un error buebe a intentarlo, si el problema persiste intenta en cerrar sesion e iniciarla de nuevo")</script>');
-        header('index.php');
-        exit();
+function limpiarcadenas($cadena){
+    $cadena=strip_tags($cadena);
+    //$cadena=strtoupper($cadena);
+    $cadena=htmlspecialchars($cadena);
+    $cadena=addslashes($cadena);
+    $cadena=trim($cadena);
+    return $cadena;
+}
+
+$id_estudiante = limpiarcadenas($_POST['id_estudiante']);
+
+function ingresarEstudiante($dato1, $conectdb){
+    if($sql = $conectdb -> prepare("INSERT INTO estudiantes VALUES (?);")){
+        $sql->bind_param('s',$dato1);
+
+        if(!$sql->execute()){
+            return false;
+            exit();
+        }else{return true;}
     }
-        return true;
-    }
-    else{
-        return false;
+
+    //$insert = "INSERT INTO 'estudiante'('id_estudiante') VALUES(456)";
+    
+}
+
+if($conectdb != null){
+    if(ingresarEstudiante($id_estudiante, $conectdb)){
+        conecctionClose($conectdb);
+        echo '<script type="text/javascript">alert("inscripcion exitosa exitoso")</script>';
+    }else{
+        echo '<script type="text/javascript">alert("ocurrio un error verifique datos o contacte a soporte tecnico")</script>';
+                //return false;
     }
 }
+
+
+//ingresarEstudiante($id_estudiante, $conectdb);
+
 ?>
