@@ -1,17 +1,45 @@
+
 <?php
+  
+  function connectionDB(){
 
-include("conexion.php");
+    $DB_SERVER='localhost';
+    $DB_NAME='inembd1';
+    $DB_USER='root';
+    $DB_PASS='';
+    
+    $enlace = mysqli_connect($DB_SERVER,$DB_USER,$DB_PASS,$DB_NAME);
+    if(!$enlace){
+    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+    $enlace=null;
+    exit;
+    }
+//    mysqli_query("SET NAMES 'utf8'");
+    $enlace->query("SET NAMES 'utf8'");
+    return $enlace;
+}
 
-    if (isset($_POST['id_estudiante'])&& !empty($_POST['id_estudiante'])&&
-    (isset($_POST['prim_apellido'])&& !empty($_POST['prim_apellido'])&&
-    (isset($_POST['seg_apellido'])&& !empty($_POST['seg_apellido']))))
-                                {                      
-        $con=mysql_connect($host,$user,$pw)or die("problema al conectar");
-            mysql_select_db($db,$con)or die("problema al conectar");
-            mysql_query("INSERT INTO estudiante(id_estudiante,prim_apellido,seg_apellido)VALUES ('$_POST[id_estudiante]','$_POST[prim_apellido]','$_POST[seg_apellido]')",$con);
-        echo "datos insertados";
-    }else
-    {echo "problemas al insertar datos".$_POST['id_estudiante'].$_POST['prim_apellido'].$_POST['seg_apellido'];
-   
+connectionDB();
+
+function ingresarPersona(){
+    
+   //encripta la contraseña
+    //$contrasena = password_hash($password, PASSWORD_DEFAULT);
+    
+    if($sql = $enl->prepare("
+    INSERT INTO estudiante VALUES(?);")){
+    $sql->bind_param('sssssssss',$cedula,$nombre,$apellido,$email,$telefono,$tipo,$usuario,$contrasena,$punto);
+    if(!$sql->execute()){
+        echo('<script type="text/javascript">alert("ocurrio un error buebe a intentarlo, si el problema persiste intenta en cerrar sesion e iniciarla de nuevo")</script>');
+        header('index.php');
+        exit();
+    }
+        return true;
+    }
+    else{
+        return false;
+    }
 }
 ?>

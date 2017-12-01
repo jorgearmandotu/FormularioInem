@@ -4,12 +4,21 @@
   padding: 0;
 }
 body{
-  background:rgb(214, 221, 219);
+  background-image:url(/img/fondo.jpg);
   font-family: Helvetica;
   font-size: 14px;
   text-align: center;
 }
+form{
+  background:rgb(223, 221, 221);
+  font-family: Helvetica;
+  font-size: 14px;
+  text-align: center;
+  margin: 5em;
+  padding: 5em;
+}
 ul{
+    list-style-type:none; 
     margin-top: 20px;
   }
 li{
@@ -24,10 +33,11 @@ input{
   margin: 10px;
   border-radius: 7px;
 }
-fieldset{
+/*fieldset{
   background: white;
   border-radius: 5px;
-}
+  text-align: center;
+}*/
 legend{
   color:red;
   font-size: 2em;
